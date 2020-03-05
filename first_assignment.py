@@ -11,7 +11,24 @@ subject = input('For subjects, please insert a space between each subject.\nAll 
 marks = input('Respective Marks for main subjects in uppercase: ').split()
 subsidiary = input('Subsidiary subject: ')
 sub_mark = input('Sub-Aggregates: ')
-gp_marks = input('GP marks: ')
+gp = input('GP marks: ')
+gp  = int(gp)
+
+gp_point = 0
+sub_point = 0
+gender_point = 0
+
+#for subsidiary
+if sub_mark > 0 and sub_mark <= 6:
+    sub_point = 1
+elif sub_mark > 6:
+    pass
+
+#for GP
+if gp > 50 and gp <= 100:
+    gp_point = 1
+elif gp < 50:
+    pass
 
 #grading for marks
 grading = {'A':6, 'B':5, 'C':4, 'D':3, 'E':2, 'O':1, 'F':0}
@@ -20,6 +37,7 @@ output = ''
 for ch in marks:
     output+=str(grading.get(ch))
 
+#get individual values from output for calculations
 a = output[0]
 b = output[1]
 c = output[2]
@@ -28,10 +46,9 @@ a = int(a)
 b = int(b)
 c = int(c)
 
-#total points
-Total_points = a + b + c
+Total_points = a + b + c + gp_point + sub_point
 
-#dealing with weights
+#dealing with weights fron the list
 for_weights = [a, b, c]
 for_weights.sort(reverse=True)
 top_two_for_weights = (for_weights[0]+for_weights[1])*3
