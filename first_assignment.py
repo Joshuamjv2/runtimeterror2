@@ -86,7 +86,7 @@ print('GP: ' + str(gp))
 print('\nTotal points: ' + str(Total_points))
 print('Weights: ' + str(total_weights_main))
 
-if total_weights_main > 25:
+if total_weights_main > 35:
     print(f'''
     Congs {applicant_name}. You qualify for the Bsc.LAW pre-entry exam.
     You will be notified on when the exam takes place.
