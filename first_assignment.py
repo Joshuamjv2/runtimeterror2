@@ -61,11 +61,42 @@ b = int(b)
 c = int(c)
 
 Total_points = a + b + c + gp_point + sub_point + gender_point
+Total_points = float(Total_points)
 
 #dealing with weights fron the list
 for_weights = [a, b, c]
 for_weights.sort(reverse=True)
 top_two_for_weights = (for_weights[0]+for_weights[1])*3
-last_for_weights = (for_weights[2])*2
+last_for_weights = (for_weights[2] + gp_point + gender_point + sub_point)*2
 
 total_weights_main = top_two_for_weights + last_for_weights
+total_weights_main = float(total_weights_main)
+
+#results according to form
+print('\n')
+print('\n')
+print(f'''{applicant_name}
+Results:
+''')
+print(str(subject[0]) + ': '+ str(marks[0]))
+print(str(subject[1]) + ': '+ str(marks[1]))
+print(str(subject[2]) + ': '+ str(marks[2]))
+print(subsidiary +': '+ str(sub_mark))
+print('GP: ' + str(gp))
+print('\nTotal points: ' + str(Total_points))
+print('Weights: ' + str(total_weights_main))
+
+if total_weights_main > 25:
+    print(f'''
+    Congs {applicant_name}. You qualify for the Bsc.LAW pre-entry exam.
+    You will be notified on when the exam takes place.
+    Thanks
+    MGT
+    ''')
+else:
+    print(f'''
+    Sorry {applicant_name}. Your results don't match the expected results to enable you to do this course.
+    Our Team will contact you about some other courses we would recommend for you. 
+    Thanks
+    MGT
+    ''')
