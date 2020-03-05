@@ -1,6 +1,12 @@
 #input Form for the user
 applicant_name = input('Name: ')
-gender = input('Gender: ')
+gender = input('Gender: ').upper()
+if gender != 'M' and gender != 'MALE' and gender != 'F' and gender != 'FEMALE':
+    print("""
+    Please check gender. Insert as 'M' or 'MALE' for Male,
+    'F' or 'FEMALE' for Female.
+     """)
+    gender = input('Gender: ')
 
 opening_remarks = print(f'''
 \n
@@ -12,11 +18,19 @@ marks = input('Respective Marks for main subjects in uppercase: ').split()
 subsidiary = input('Subsidiary subject: ')
 sub_mark = input('Sub-Aggregates: ')
 gp = input('GP marks: ')
+
 gp  = int(gp)
+sub_mark = int(sub_mark)
 
 gp_point = 0
 sub_point = 0
 gender_point = 0
+
+#for gender point
+if gender == 'F' or gender == 'FEMALE':
+    gender_point = 1.5
+else:
+    pass
 
 #for subsidiary
 if sub_mark > 0 and sub_mark <= 6:
@@ -46,7 +60,7 @@ a = int(a)
 b = int(b)
 c = int(c)
 
-Total_points = a + b + c + gp_point + sub_point
+Total_points = a + b + c + gp_point + sub_point + gender_point
 
 #dealing with weights fron the list
 for_weights = [a, b, c]
