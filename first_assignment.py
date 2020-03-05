@@ -67,7 +67,7 @@ Total_points = float(Total_points)
 for_weights = [a, b, c]
 for_weights.sort(reverse=True)
 top_two_for_weights = (for_weights[0]+for_weights[1])*3
-last_for_weights = (for_weights[2] + gp_point + gender_point + sub_point)*2
+last_for_weights = (for_weights[2])*2 + gp_point + gender_point + sub_point
 
 total_weights_main = top_two_for_weights + last_for_weights
 total_weights_main = float(total_weights_main)
