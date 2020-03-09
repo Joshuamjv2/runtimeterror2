@@ -5,7 +5,7 @@ if gender != 'M' and gender != 'MALE' and gender != 'F' and gender != 'FEMALE':
     print("""
     Please check gender. Insert as 'M' or 'MALE' for Male,
     'F' or 'FEMALE' for Female.
-     """)
+    """)
     gender = input('Gender: ')
 
 opening_remarks = print(f'''
